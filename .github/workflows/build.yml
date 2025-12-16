@@ -1,0 +1,30 @@
+name: Enviar Treino Diário
+
+on:
+  schedule:
+    # Atenção: O GitHub roda em UTC!
+    # Manaus é UTC-4.
+    # Se você quer 05:30 AM em Manaus -> 09:30 AM UTC.
+    - cron: '30 9 * * *'
+  # Permite rodar manualmente na aba 'Actions' pra testar
+  workflow_dispatch:
+
+jobs:
+  send-email:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout do código
+        uses: actions/checkout@v3
+
+      - name: Configurar Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.9'
+
+      - name: Rodar Script
+        env:
+          EMAIL_USER: ${{ secrets.EMAIL_USER }}
+          EMAIL_PASSWORD: ${{ secrets.EMAIL_PASSWORD }}
+        run: |
+          python trainer_bot.py
