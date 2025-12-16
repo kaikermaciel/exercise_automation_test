@@ -2,14 +2,13 @@ import smtplib
 import ssl
 import datetime
 from email.message import EmailMessage
+import os
 
-# --- CONFIGURAÇÕES (EDITE AQUI) ---
-EMAIL_SENDER = 'kaiker.maciel@gmail.com'
-EMAIL_PASSWORD = 'hjfc pvdm ledx eddu'  # Senha de App do Google (Não é a senha do login!)
-EMAIL_RECEIVER = 'kaike.maciel@icomp.ufam.edu.br' # Para quem vai o alerta
 
-# --- SUA ROTINA (Baseada no nosso papo) ---
-# 0 = Segunda, 1 = Terça, ... 6 = Domingo
+EMAIL_SENDER = os.environ.get('EMAIL_USER')
+EMAIL_PASSWORD = os.environ.get('EMAIL_PASSWORD')
+EMAIL_RECEIVER = os.environ.get('EMAIL_USER') 
+
 rotina = {
     0: {
         "titulo": "SEGUNDA: Força Superior + Cardio",
