@@ -1,4 +1,4 @@
-# 🏋️‍♂️ Personal Trainer Bot com IA (GitHub Actions + Gemini)
+# 🏋️‍♂️ Personal Trainer Bot com IA (GitHub Actions + IA)
 
 Este projeto é uma automação em **Python** que atua como um Personal Trainer digital. Ele roda diariamente na nuvem via **GitHub Actions**, gera treinos personalizados usando a **IA** e envia os planos por e-mail para uma lista de atletas cadastrados.
 
