@@ -3,11 +3,24 @@ import ssl
 import datetime
 from email.message import EmailMessage
 import os
+from dotenv import load_dotenv
+
+load_dotenv()
 
 
 EMAIL_SENDER = os.environ.get('EMAIL_USER')
 EMAIL_PASSWORD = os.environ.get('EMAIL_PASSWORD')
-EMAIL_RECEIVER = os.environ.get('EMAIL_USER') 
+
+env_list = os.environ.get('EMAIL_LIST')
+if env_list:
+    LISTA_DESTINATARIOS = [email.strip() for email in env_list.split(',')]
+else:
+    # Fallback se esquecer de configurar a Secret
+    LISTA_DESTINATARIOS = [os.environ.get('EMAIL_USER')]
+
+print(f"DEBUG: EMAIL_USER está carregado? {'SIM' if EMAIL_SENDER else 'NÃO'}")
+print(f"DEBUG: Tamanho da senha: {len(EMAIL_PASSWORD) if EMAIL_PASSWORD else 0}")
+
 
 rotina = {
     0: {
@@ -113,22 +126,29 @@ def enviar_email():
     </html>
     """
 
-    em = EmailMessage()
-    em['From'] = EMAIL_SENDER
-    em['To'] = EMAIL_RECEIVER
-    em['Subject'] = subject
-    em.set_content(body, subtype='html')
-
     context = ssl.create_default_context()
 
     try:
+        # Abre a conexão UMA VEZ
         with smtplib.SMTP_SSL('smtp.gmail.com', 465, context=context) as smtp:
             smtp.login(EMAIL_SENDER, EMAIL_PASSWORD)
-            smtp.send_message(em) 
             
-        print(f"E-mail enviado com sucesso para {dados_hoje['titulo']}")
+            # Loop para enviar para cada pessoa da lista
+            for destinatario in LISTA_DESTINATARIOS:
+                msg = EmailMessage()
+                msg['From'] = EMAIL_SENDER
+                msg['To'] = destinatario
+                msg['Subject'] = subject
+                msg.set_content(body, subtype='html')
+                print(f"DEBUG: enviado para: {(destinatario)}")
+                
+
+                # Envia
+                smtp.send_message(msg)
+                print(f"E-mail enviado para: {destinatario}")
+                
     except Exception as e:
-        print(f"Erro ao enviar: {type(e).__name__} - {e}")
+        print(f"Erro no envio: {type(e).__name__} - {e}")
 
 if __name__ == "__main__":
     enviar_email()
