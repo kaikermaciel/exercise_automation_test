@@ -1,4 +1,4 @@
-# 🏋️‍♂️ Personal Trainer Bot com IA (GitHub Actions + IA)
+# PT Bot com IA (GitHub Actions + IA)
 
 Este projeto é uma automação em **Python** que atua como um Personal Trainer digital. Ele roda diariamente na nuvem via **GitHub Actions**, gera treinos personalizados usando a **IA** e envia os planos por e-mail para uma lista de atletas cadastrados.
 
@@ -6,17 +6,17 @@ Se a IA estiver indisponível, o sistema conta com um mecanismo de **Fallback (B
 
 ---
 
-## 🚀 Funcionalidades
+## Funcionalidades
 
-* **🤖 Geração com IA:** Usa o modelo `gemma-3-27b-it` para criar treinos únicos baseados no perfil de cada usuário (ex: Hipertrofia vs. Resistência). Verificar a lista de modelos disponíveis e analisar qual se alinha com seu plano.
-* **👥 Multi-Usuário:** Suporta múltiplos perfis. O script itera sobre uma lista de atletas e personaliza o prompt para cada um.
-* **🛡️ Sistema Fail-Safe:** Se a API do Gemini falhar, cair ou der erro de cota, o script alterna automaticamente para uma rotina fixa de backup. Fazer mudanças de acordo com o que desejas.
-* **☁️ Serverless:** Roda gratuitamente no GitHub Actions com agendamento Cron (sem necessidade de servidor ligado 24/7).
-* **📧 E-mails HTML:** Envio formatado com listas limpas e design responsivo simples.
+* **Geração com IA:** Usa o modelo `gemma-3-27b-it` para criar treinos únicos baseados no perfil de cada usuário (ex: Hipertrofia vs. Resistência). Verificar a lista de modelos disponíveis e analisar qual se alinha com seu plano.
+* **Multi-Usuário:** Suporta múltiplos perfis. O script itera sobre uma lista de atletas e personaliza o prompt para cada um.
+* **Sistema Fail-Safe:** Se a API do Gemini falhar, cair ou der erro de cota, o script alterna automaticamente para uma rotina fixa de backup. Fazer mudanças de acordo com o que desejas.
+* **Serverless:** Roda gratuitamente no GitHub Actions com agendamento Cron (sem necessidade de servidor ligado 24/7).
+* **E-mails HTML:** Envio formatado com listas limpas e design simples.
 
 ---
 
-## 🛠️ Tecnologias Utilizadas
+## Tecnologias Utilizadas
 
 * **Python 3.x**
 * **Google Gemini API** (`google-generativeai`)
@@ -25,7 +25,7 @@ Se a IA estiver indisponível, o sistema conta com um mecanismo de **Fallback (B
 
 ---
 
-## ⚙️ Configuração Local
+## Configuração Local
 
 1.  **Clone o repositório:**
     ```bash
@@ -71,7 +71,7 @@ Se a IA estiver indisponível, o sistema conta com um mecanismo de **Fallback (B
 
 ---
 
-## ☁️ Configuração no GitHub (Deploy)
+## Configuração no GitHub
 
 Para rodar automaticamente todo dia:
 
@@ -84,7 +84,7 @@ Para rodar automaticamente todo dia:
 
 ---
 
-## 📂 Estrutura do Projeto
+## Estrutura do Projeto
 
 ```text
 .
