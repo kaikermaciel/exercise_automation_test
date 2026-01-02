@@ -4,6 +4,10 @@ Este projeto é uma automação em **Python** que atua como um Personal Trainer 
 
 Se a IA estiver indisponível, o sistema conta com um mecanismo de **Fallback (Backup)** robusto para garantir que ninguém fique sem treinar.
 
+### Observação Importante:
+
+**É um sistema que visa acessibilidade, mas de maneira alguma substitui o acompanhamento de um profissional em educação fisíca ou fisioterapeuta!! Quem pode determinar melhores informações são somentes eles. Caso você tenha tido ou tem algum tipo de lesão ou dificuldade não utilize o código e vá em busca de um profissional especializado!!!**
+
 ---
 
 ## Funcionalidades
@@ -95,3 +99,6 @@ Para rodar automaticamente todo dia:
 ├── requirements.txt     # Dependências (google-generativeai, python-dotenv)
 ├── .env                 # Variáveis locais (Ignorado pelo Git)
 └── README.md            # Documentação
+
+```
+
